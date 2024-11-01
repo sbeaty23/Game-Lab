@@ -1,17 +1,16 @@
-package Game;
+package game;
 
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Game {
 	static ArrayList<Item> inventory = new ArrayList<Item>();
-	
+	static Room currentRoom = World.buildWorld();
 	public static void main(String[] args) {
 		runGame();
 	}
 	
 	public static void runGame() {
-		Room currentRoom = World.buildWorld();
 		Scanner input = new Scanner(System.in);
 		
 		String[] commands;
@@ -61,6 +60,24 @@ public class Game {
 					}
 				}
 				break;
+			case "use":
+				for(Item i: inventory){
+					if(i.getName().equals(commands[1])) {
+						i.use();
+						break;
+					}
+				System.out.println("Item doesn't exist");
+				}
+				break;
+			case "open":
+				for(Item i: inventory){
+					if(i.getName().equals(commands[1])) {
+						i.open();
+						break;
+					}
+				System.out.println("Item doesn't exist");
+				}
+			break;
 			case "x":
 				System.out.print("Thanks for playing! \n");
 				break;
@@ -69,5 +86,17 @@ public class Game {
 			}
 		} while(!commands[0].equals("x"));
 		input.close();
+	}
+	public static void print(Object obj){
+		System.out.println(obj.toString());
+	}
+	
+	public static Item find(String n){
+		for(Item i:inventory) {
+			if(i.getName().equals(n)) {
+				return i;
+			}
+		}
+		return null;
 	}
 }

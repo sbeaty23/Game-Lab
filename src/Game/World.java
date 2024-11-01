@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 public class World {
 	public static Room buildWorld(){
@@ -31,6 +31,8 @@ public class World {
 		Item coin = new Item("Coin", "It's your lucky day!");
 		Item gameCard = new Item("GameCard", "To play all the games you want");
 		Item soda = new Item("Soda","A refreshing beverage");
+		Safe safe = new Safe("safe", "looks cool");
+		Combination combo = new Combination("combo", "To get into the safe");
 		
 		stairs3.addExit(stairs2, 'd');
 		stairs3.addExit(hallway3p1, 'e');
@@ -56,6 +58,7 @@ public class World {
 		lobby.addItem(roomKey, "Key201");	
 		
 		ownerOffice.addExit(lobby, 'n');
+		ownerOffice.addItem(safe,"safe");
 		
 		arcade.addExit(casino, 'e');
 		arcade.addExit(lobby, 'w');
@@ -65,6 +68,7 @@ public class World {
 		
 		casino.addExit(freedom,'e');
 		casino.addExit(arcade, 'w');
+		casino.addItem(combo, "combo");
 		
 		hallway1p1.addExit(laundry, 'd');
 		hallway1p1.addExit(hallway1p2, 'e');
