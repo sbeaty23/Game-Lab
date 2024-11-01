@@ -70,12 +70,11 @@ public class Game {
 				}
 				break;
 			case "open":
-				for(Item i: inventory){
-					if(i.getName().equals(commands[1])) {
-						i.open();
-						break;
-					}
-				System.out.println("Item doesn't exist");
+				if(currentRoom.getItem(commands[1])!=null){
+					currentRoom.getItem(commands[1]).open();
+				}
+				else{
+					System.out.println("Item doesn't exist");
 				}
 			break;
 			case "x":
