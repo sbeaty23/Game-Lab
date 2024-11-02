@@ -89,6 +89,10 @@ public class Game {
 	public static void print(Object obj){
 		System.out.println(obj.toString());
 	}
+
+	public static Room getCurrentRoom(){
+		return currentRoom;
+	}
 	
 	public static Item find(String n){
 		for(Item i:inventory) {
