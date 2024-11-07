@@ -26,7 +26,12 @@ public class Game {
 			case "s":
 			case "u":
 			case "d":
-				currentRoom = currentRoom.getExit(commands[0].charAt(0));
+				if(currentRoom.getExit(commands[0].charAt(0)).getLocked()==true){
+					System.out.println("This room is locked. You need the key!");
+				}
+				else{
+					currentRoom = currentRoom.getExit(commands[0].charAt(0));
+				}
 				break;
 			case "take":
 				if(currentRoom.getItem(commands[1])!=null) {
@@ -46,7 +51,7 @@ public class Game {
 							System.out.println(i.getDescription());
 							break;
 						}
-					System.out.println("Item doesn't exist");
+				System.out.println("Item doesn't exist");
 					}
 				}
 				break;

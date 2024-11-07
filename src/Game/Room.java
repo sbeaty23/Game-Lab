@@ -11,9 +11,12 @@ public class Room {
 	private Room roomUp;
 	private Room roomDown;
 	private HashMap<String, Item> things = new HashMap<String,Item>();
+	private boolean lock;
+	private String name;
 	
-	public Room(String d) {
+	public Room(String d, String n) {
 		description = d;
+		name = n;
 	}
 	
 	
@@ -83,5 +86,23 @@ public class Room {
 		String s = description;
 		return s;
 	}
-	
+	public void lockRoom(){
+		lock = true;
+	}
+
+	public void unlockRoom(){
+		lock = false;
+	}
+
+	public boolean getLocked(){
+		return lock;
+	}
+
+	public void setName(String n){
+		name = n;
+	}
+
+	public String getName(){
+		return name;
+	}
 }
