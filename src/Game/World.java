@@ -26,7 +26,7 @@ public class World {
 		Room stairs1 = new Room("You are in the first floor stairway","Lobby Stairs");
 		Room stairs2 = new Room("You are in the second floor stairway","2nd Floor Stairs");
 		Room stairs3 = new Room("You are in the thrid floor stairway", "3rd Floor Stairs" );
-		Room freedom = new Room("Congratulations! You've escaped the hotel!","Freedom");
+		Room freedom = new Room("Congratulations! You've escaped the hotel!","freedom");
 		Item roomKey = new Item("Key201","To get into your room");
 		Item coin = new Item("Coin", "It's your lucky day!");
 		Item gameCard = new Item("GameCard", "To play all the games you want");
