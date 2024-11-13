@@ -35,9 +35,12 @@ public class World {
 		Combination combo = new Combination("combo", "To get into the safe");
 		Key freedomKey = new Key("Exit Key", "Key to freedom");
 		Item note = new Item("note","Your ticket to freedom might be dirty. Go get some cleaning supplies!");
-		Item note2 = new Item("note2","You're in the right place, but this room is locked. Maybe go play a game in the arcade.");
 		Key maintenanceKey = new Key("key1-2","Key to maintenance");
-		Item mop = new Item("mop","To clean. Or knock someone out. Maybe both. Your call");
+		Mop mop = new Mop("mop","To clean. Or knock someone out. Maybe both. Your call");
+		Item note3 = new Item("note3","This room is locked! Maybe you should play a game in the arcade.");
+		Money money = new Money("money","To get casino chips. Or bribe someone. Your call");
+		Ball ball = new Ball("ball","To throw around. Maybe to knock something down. Up to you");
+		Box box = new Box("box", "Well, open it.");
 		
 		stairs3.addExit(stairs2, 'd');
 		stairs3.addExit(hallway3p1, 'e');
@@ -73,7 +76,7 @@ public class World {
 		arcade.addItem(coin,"Coin");
 		arcade.addItem(gameCard, "GameCard");
 		arcade.addItem(soda, "soda");
-		arcade.addItem(maintenanceKey, "maintenanceKey");
+		
 		
 		casino.addExit(freedom,'e');
 		casino.addExit(arcade, 'w');
@@ -86,7 +89,7 @@ public class World {
 		hallway1p1.addExit(stairs0, 'w');
 		hallway1p2.addExit(maintenance, 'e');
 		hallway1p2.addExit(hallway1p1, 'w');
-		hallway1p2.addItem(note2,"note2");
+		hallway1p2.addItem(note3,"note3");
 		
 		hallway2p1.addExit(hallway2p2,'e');
 		hallway2p1.addExit(stairs2,'w');
@@ -99,6 +102,7 @@ public class World {
 		hallway2p3.addExit(rm203,'d');
 		
 		rm201.addExit(hallway2p1, 'u');
+		rm201.addItem(money, "money");
 		rm202.addExit(hallway2p2, 'u');
 		rm203.addExit(hallway2p3, 'u');
 		
@@ -112,6 +116,7 @@ public class World {
 		hallway3p3.addExit(rm303,'d');
 		
 		rm301.addExit(hallway3p1, 'u');
+		rm301.addItem(maintenanceKey, "maintenanceKey");
 		rm302.addExit(hallway3p2, 'u');
 		rm303.addExit(hallway3p3, 'u');
 	
