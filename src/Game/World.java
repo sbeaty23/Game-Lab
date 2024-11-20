@@ -1,32 +1,32 @@
 package game;
-
+//TODO: make all room names one word w/o spaces
 public class World {
 	public static Room buildWorld(){
-		Room lobby = new Room("You are in the lobby","lobby");
-		Room ownerOffice = new Room("You are in the owner's office","office");
-		Room arcade = new Room("You are in the arcade","arcade");
-		Room casino = new Room("You are in the casino","casino");
-		Room hallway1p1 = new Room("You are in the basement hallway, in front of the laundry room","Hall 1 Part 1");
-		Room hallway1p2 = new Room("You are in the basement hallway, in front of the maintenance room","Hall 1 Part 2");
-		Room laundry = new Room("You are in the laundry room","Laundry Room");
-		Room maintenance = new Room("You are in the maintenance room","maintenance");
-		Room hallway2p1 = new Room("You are in the second floor hallway, in front of room 201","Hall 2 Part 1");
-		Room hallway2p2 = new Room("You are in the second floor hallway, in front of room 202","Hall 2 Part 2");
-		Room hallway2p3 = new Room("You are in the second floor hallway, in front of room 203","Hall 2 Part 3");
-		Room rm201 = new Room("You are in room 201","Room 201");
-		Room rm202 = new Room("You are in room 202","Room 202");
-		Room rm203 = new Room("You are in room 203","Room 203");
-		Room hallway3p1 = new Room("You are in the third floor hallway, in front of room 301","Hall 3 Part 1");
-		Room hallway3p2 = new Room("You are in the third floor hallway, in front of room 302","Hall 3 Part 2");
-		Room hallway3p3 = new Room("You are in the third floor hallway, in front of room 303","Hall 3 Part 3");		
-		Room rm301 = new Room("You are in room 301","Room 301");
-		Room rm302 = new Room("You are in room 302","Room 302");
-		Room rm303 = new Room("You are in room 303","Room 303");
-		Room stairs0 = new Room("You are in the basement stairway","Basement stairs");
-		Room stairs1 = new Room("You are in the first floor stairway","Lobby Stairs");
-		Room stairs2 = new Room("You are in the second floor stairway","2nd Floor Stairs");
-		Room stairs3 = new Room("You are in the thrid floor stairway", "3rd Floor Stairs" );
-		Room freedom = new Room("Congratulations! You've escaped the hotel!","freedom");
+		Room lobby = new Room("lobby");
+		Room ownerOffice = new Room("office");
+		Room arcade = new Room("arcade");
+		Room casino = new Room("casino");
+		Room hallway1p1 = new Room("Hall 1 Part 1");
+		Room hallway1p2 = new Room("Hall 1 Part 2");
+		Room laundry = new Room("Laundry Room");
+		Room maintenance = new Room("maintenance");
+		Room hallway2p1 = new Room("Hall 2 Part 1");
+		Room hallway2p2 = new Room("Hall 2 Part 2");
+		Room hallway2p3 = new Room("Hall 2 Part 3");
+		Room rm201 = new Room("Room 201");
+		Room rm202 = new Room("Room 202");
+		Room rm203 = new Room("Room 203");
+		Room hallway3p1 = new Room("Hall 3 Part 1");
+		Room hallway3p2 = new Room("Hall 3 Part 2");
+		Room hallway3p3 = new Room("Hall 3 Part 3");		
+		Room rm301 = new Room("Room 301");
+		Room rm302 = new Room("Room 302");
+		Room rm303 = new Room("Room 303");
+		Room stairs0 = new Room("Basement stairs");
+		Room stairs1 = new Room("Lobby Stairs");
+		Room stairs2 = new Room("2nd Floor Stairs");
+		Room stairs3 = new Room( "3rd Floor Stairs" );
+		Room freedom = new Room("freedom");
 		Item roomKey = new Item("Key201","To get into your room");
 		Item coin = new Item("Coin", "It's your lucky day!");
 		Item gameCard = new Item("GameCard", "To play all the games you want");

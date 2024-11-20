@@ -1,0 +1,74 @@
+lobby
+You are in the Lobby
+#
+office
+You are in the owner's office
+#
+arcade
+You are in the arcade
+#
+casino
+You are in the casino
+#
+Hall 1 Part 1
+You are in the basement hallway in front of the laundry room   
+#
+Hall 1 Part 2  
+You are in the basement hallway in front of the maintenance room
+#
+Laundry Room
+You are in the laundry room
+#
+Maintenance
+You are in the maintenance room
+#
+Hall 2 Part 1
+You are in the second floor hallway in front of room 201
+#   
+Hall 2 Part 2
+You are in the second floor hallway in front of room 202
+#  
+Hall 2 Part 3 
+You are in the second floor hallway in front of room 203
+#   
+Room 201
+You are in room 201
+#
+Room 202
+You are in room 202
+#
+Room 203
+You are in room 203
+#
+Hall 3 Part 1
+You are in the third floor hallway in front of room 301
+#    
+Hall 3 Part 2
+You are in the third floor hallway in front of room 302
+#  
+Hall 3 Part 3 
+You are in the third floor hallway in front of room 303
+#
+Room 301
+You are in room 301
+#      
+Room 302 
+You are in room 302
+#    
+Room 303
+You are in room 303
+#   
+Basement stairs
+You are in the basement stairway
+#
+Lobby Stairs
+You are in the first floor stairway
+#
+2nd Floor Stairs
+You are in the second floor stairway
+#
+3rd Floor Stairs
+You are in the thrid floor stairway
+#
+Freedom
+Congratulations! You've escaped the hotel!      

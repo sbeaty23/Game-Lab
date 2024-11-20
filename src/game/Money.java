@@ -9,5 +9,5 @@ public class Money extends Item {
     @Override
     public void use(){
         Game.print("You use the money to bribe them. Things just became a lot easier!");
-    }
+    }// TODO: Improve method once NPCs are added
 }

@@ -1,9 +1,9 @@
 package game;
 
 import java.util.HashMap;
+import java.io.*;
 
-public class Room {
-	private String description;
+public class Room  implements Serializable{
 	private Room roomEast;
 	private Room roomWest;
 	private Room roomNorth;
@@ -14,9 +14,9 @@ public class Room {
 	private boolean lock;
 	private String name;
 	
-	public Room(String d, String n) {
-		description = d;
+	public Room(String n) {
 		name = n;
+		Game.rooms.put(n, this);
 	}
 	
 	
@@ -81,12 +81,20 @@ public class Room {
 		things.remove(s);
 		return x;
 	}
+
+	public String getDescription(String n){
+		for(String s: Game.descriptions.keySet()){
+			if(s.equals(n)){
+				return Game.descriptions.get(s);
+			}
+		}
+		return null;
+	}
 	
 	public String toString() {
-		String s = description;
-		return s;
+		return this.getDescription(name);
 	}
-	public void lockRoom(){
+		public void lockRoom(){
 		lock = true;
 	}
 
