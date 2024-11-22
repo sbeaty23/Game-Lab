@@ -41,6 +41,8 @@ public class World {
 		Money money = new Money("money","To get casino chips. Or bribe someone. Your call");
 		Ball ball = new Ball("ball","To throw around. Maybe to knock something down. Up to you");
 		Box box = new Box("box", "Well, open it.");
+		Puppy puppy  = new Puppy();
+		CasinoWorker casinoWorker = new CasinoWorker("Will", "A pretty mean guy");
 		
 		stairs3.addExit(stairs2, 'd');
 		stairs3.addExit(hallway3p1, 'e');
@@ -76,11 +78,13 @@ public class World {
 		arcade.addItem(coin,"Coin");
 		arcade.addItem(gameCard, "GameCard");
 		arcade.addItem(soda, "soda");
+		arcade.addNPC("Puppy", puppy);
 		
 		
 		casino.addExit(freedom,'e');
 		casino.addExit(arcade, 'w');
 		casino.addItem(combo, "combo");
+		casino.addNPC("Will", casinoWorker);
 
 		freedom.lockRoom();
 		

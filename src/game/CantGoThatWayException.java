@@ -15,4 +15,4 @@ public class CantGoThatWayException extends RuntimeException{
      *     code that deals with exception
      * }
      */
-    // This was put here in case it needs to be implemented later
+    // This was put here in case it needs to be implemented later, and for note-taking

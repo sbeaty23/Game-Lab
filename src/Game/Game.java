@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.io.*;
 
 public class Game {
+	static Scanner input = new Scanner(System.in);
 	static ArrayList<Item> inventory = new ArrayList<Item>();
 	static HashMap<String,String> descriptions = new HashMap<String,String>();	
 	static HashMap<String,Room> rooms = new HashMap<String, Room>();
@@ -16,7 +17,6 @@ public class Game {
 	}
 	
 	public static void runGame() {
-		Scanner input = new Scanner(System.in);
 		
 		String[] commands;
 		do {
@@ -95,6 +95,9 @@ public class Game {
 					System.out.println("Item doesn't exist");
 				}
 			break;
+			case "talk":
+				currentRoom.getNPC(commands[1]).talk();
+				break;
 			case "save":
 				System.out.println("Enter file name:");
 				String name = input.nextLine();
