@@ -4,11 +4,13 @@ package game;
 public class NPC {
     private String name; // NPC's name
     private String desc; // NPC's description
+    static boolean knockedOut; 
     int dialogNum;
     public NPC(String name, String desc) {
         this.name = name;
         this.desc = desc;
         this.dialogNum = 0;
+        knockedOut = false;
     }
     public String getName() {
         return name;
@@ -33,5 +35,8 @@ public class NPC {
         int option = Game.input.nextInt();
         Game.input.nextLine(); // Flush input buffer
         response(option);
+    }
+    public void knockOut(){
+        Game.print("You try to knock them out, but you can't! Oh no!");
     }
 }

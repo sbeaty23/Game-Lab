@@ -11,6 +11,7 @@ public class Game {
 	static HashMap<String,String> descriptions = new HashMap<String,String>();	
 	static HashMap<String,Room> rooms = new HashMap<String, Room>();
 	static Room currentRoom = World.buildWorld();
+	static String[] commands;
 	public static void main(String[] args) {
 		addDescriptions();
 		runGame();
@@ -18,7 +19,6 @@ public class Game {
 	
 	public static void runGame() {
 		
-		String[] commands;
 		do {
 			System.out.println(currentRoom);
 			System.out.print("Where do you want to go? ");

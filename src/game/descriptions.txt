@@ -32,7 +32,7 @@ Hall 2 Part 3
 You are in the second floor hallway in front of room 203
 #   
 Room 201
-You are in room 201
+You are in your room
 #
 Room 202
 You are in room 202

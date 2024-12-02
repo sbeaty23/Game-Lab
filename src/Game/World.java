@@ -1,5 +1,5 @@
 package game;
-//TODO: make all room names one word w/o spaces
+//TODO: make all room names one word w/o spaces and add items and characters to descriptions
 public class World {
 	public static Room buildWorld(){
 		Room lobby = new Room("lobby");
@@ -62,13 +62,14 @@ public class World {
 		
 		maintenance.addExit(hallway1p2, 'w');
 		maintenance.addItem(freedomKey, "exitKey");
-		maintenance.addItem(mop, "mop");
+		// maintenance.addItem(mop, "mop");
 		maintenance.lockRoom();
 		
 		lobby.addExit(arcade, 'e');
 		lobby.addExit(ownerOffice, 's');
 		lobby.addExit(stairs1, 'w');
-		lobby.addItem(roomKey, "Key201");	
+		lobby.addItem(roomKey, "Key201");
+		lobby.addItem(mop, "mop");	
 		
 		ownerOffice.addExit(lobby, 'n');
 		ownerOffice.addItem(safe,"safe");

@@ -1,11 +1,26 @@
 package game;
 
 public class Puppy extends NPC {
-    
+    private int num = 0;
     
 public Puppy() {
     super("puppy", "A hideous puppy wags his tail.");
     }
+
+    @Override
+    public void knockOut(){
+        if(num<5){
+            Game.print("Really? You wanted to knock out the puppy? Really? What kind of person are you? You obviously can't knock out the puppy, you monster. Go to your room and think about what you've done.");
+            Game.print("The player walks back to their room to think about their despicable actions.");
+            Game.currentRoom = Game.currentRoom.getExit('w').getExit('w').getExit('u').getExit('e').getExit('d');
+            num++;
+        }
+        else{
+            Game.print("The game is over. You're stuck here forever. Karma's a bitch.");
+            System.exit(0);
+        }
+    }
+
     @Override
     public void talk() {
         switch(dialogNum){

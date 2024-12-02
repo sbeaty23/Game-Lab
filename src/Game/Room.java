@@ -14,6 +14,7 @@ public class Room  implements Serializable{
 	private HashMap<String, NPC> characters = new HashMap<String, NPC>();
 	private boolean lock;
 	private String name;
+	private String desc_label;
 	
 	public Room(String n) {
 		name = n;
@@ -100,6 +101,7 @@ public class Room  implements Serializable{
 		}
 		return null;
 	}
+	//TODO: add set description method using desc_label
 	
 	public String toString() {
 		return this.getDescription(name);

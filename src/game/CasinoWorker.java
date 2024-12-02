@@ -5,7 +5,11 @@ public class CasinoWorker extends NPC{
     public CasinoWorker(String n,String d){
         super(n,d);
     }
-
+    @Override
+    public void knockOut(){
+        knockedOut = true;
+        Game.print("Will is knocked out! Now is your chance to escape!");
+    }
     @Override
     public void talk() {
         switch(dialogNum){
