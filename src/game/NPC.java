@@ -37,6 +37,6 @@ public class NPC {
         response(option);
     }
     public void knockOut(){
-        Game.print("You try to knock them out, but you can't! Oh no!");
+        Game.print("You try to knock out " + name+", but you can't!");
     }
 }

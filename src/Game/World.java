@@ -43,6 +43,7 @@ public class World {
 		Box box = new Box("box", "Well, open it.");
 		Puppy puppy  = new Puppy();
 		CasinoWorker casinoWorker = new CasinoWorker("Will", "A pretty mean guy");
+		Housekeeper housekeeper = new Housekeeper("Katie", "A friendly housekeeper");
 		
 		stairs3.addExit(stairs2, 'd');
 		stairs3.addExit(hallway3p1, 'e');
@@ -70,6 +71,7 @@ public class World {
 		lobby.addExit(stairs1, 'w');
 		lobby.addItem(roomKey, "Key201");
 		lobby.addItem(mop, "mop");	
+		lobby.addItem(ball,"ball");
 		
 		ownerOffice.addExit(lobby, 'n');
 		ownerOffice.addItem(safe,"safe");
@@ -114,6 +116,7 @@ public class World {
 		hallway3p1.addExit(hallway3p2,'e');
 		hallway3p1.addExit(stairs3,'w');
 		hallway3p1.addExit(rm301,'d');
+		hallway3p1.addNPC("Katie", housekeeper);
 		hallway3p2.addExit(hallway3p3,'e');
 		hallway3p2.addExit(hallway3p1,'w');
 		hallway3p2.addExit(rm302,'d');

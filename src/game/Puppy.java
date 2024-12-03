@@ -7,17 +7,20 @@ public Puppy() {
     super("puppy", "A hideous puppy wags his tail.");
     }
 
+    public static void playFetch(){
+        Game.print("The player throws the ball.\nThe puppy happily runs after it, and brings it back to the player.\nThe puppy licks the player's hand");    }
+
     @Override
     public void knockOut(){
-        if(num<5){
+        if(num<4){
             Game.print("Really? You wanted to knock out the puppy? Really? What kind of person are you? You obviously can't knock out the puppy, you monster. Go to your room and think about what you've done.");
-            Game.print("The player walks back to their room to think about their despicable actions.");
+            Game.print("The player walks to their room to think about their despicable actions.");
             Game.currentRoom = Game.currentRoom.getExit('w').getExit('w').getExit('u').getExit('e').getExit('d');
             num++;
         }
         else{
-            Game.print("The game is over. You're stuck here forever. Karma's a bitch.");
-            System.exit(0);
+            Game.print("Game Over. You're stuck here forever. Karma's a bitch.");
+            Game.gameOver = true;
         }
     }
 

@@ -12,6 +12,7 @@ public class Game {
 	static HashMap<String,Room> rooms = new HashMap<String, Room>();
 	static Room currentRoom = World.buildWorld();
 	static String[] commands;
+	static boolean gameOver = false;
 	public static void main(String[] args) {
 		addDescriptions();
 		runGame();
@@ -110,13 +111,15 @@ public class Game {
 				break;
 			case "x":
 				System.out.print("Thanks for playing! \n");
+				gameOver = true;
 				break;
 			default:
 				System.out.print("I don't know what that means \n");
 			}
-		} while(!commands[0].equals("x"));
+		} while(!gameOver);
 		input.close();
 	}
+
 	public static void print(Object obj){
 		System.out.println(obj.toString());
 	}
