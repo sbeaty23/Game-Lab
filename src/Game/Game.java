@@ -21,11 +21,16 @@ public class Game {
 	public static void runGame() {
 		
 		do {
-			System.out.println(currentRoom);
+			Game.print(currentRoom);
 			System.out.print("Where do you want to go? ");
-			commands = input.nextLine().split(" ");
-			
-			switch(commands[0]) {
+			processCommand(input.nextLine());
+		} while(!gameOver);
+		input.close();
+	}
+
+	public static void processCommand(String command){
+		commands = command.split(" ");
+		switch(commands[0]) {
 			case "e":
 			case "w":
 			case "n":
@@ -37,14 +42,14 @@ public class Game {
 						throw new CantGoThatWayException("You can't go that way!");
 					}
 					if(currentRoom.getExit(commands[0].charAt(0)).getLocked()==true){
-						System.out.println("This room is locked. You need the key!");
+						Game.print("This room is locked. You need the key!");
 					}
 					else{
 						currentRoom = currentRoom.getExit(commands[0].charAt(0));
 					}
 				}
 				catch(CantGoThatWayException e) {
-					System.out.println("You can't go that way!");
+					Game.print("You can't go that way!");
 				}
 				break;
 			case "take":
@@ -52,30 +57,30 @@ public class Game {
 					inventory.add(currentRoom.takeItem(commands[1]));
 				}
 				else {
-					System.out.println("No item found");
+					Game.print("No item found");
 				}
 				break;
 			case "look":
 				if(currentRoom.getItem(commands[1])!=null) {
-					System.out.println(currentRoom.getItem(commands[1]).getDescription());
+					Game.print(currentRoom.getItem(commands[1]).getDescription());
 				}
 				else if(currentRoom.getItem(commands[1])==null) {
 					for(Item i:inventory) {
 						if(i.getName().equals(commands[1])) {
-							System.out.println(i.getDescription());
+							Game.print(i.getDescription());
 							break;
 						}
-				System.out.println("Item doesn't exist");
+				Game.print("Item doesn't exist");
 					}
 				}
 				break;
 			case "i":
 				if(inventory.isEmpty()) {
-					System.out.println("Inventory is empty");
+					Game.print("Inventory is empty");
 				}
 				else {
 					for (Item i: inventory) {
-						System.out.println(i+ " ");
+						Game.print(i+ " ");
 					}
 				}
 				break;
@@ -85,7 +90,7 @@ public class Game {
 						i.use();
 						break;
 					}
-				System.out.println("Item doesn't exist");
+				Game.print("Item doesn't exist");
 				}
 				break;
 			case "open":
@@ -93,19 +98,19 @@ public class Game {
 					currentRoom.getItem(commands[1]).open();
 				}
 				else{
-					System.out.println("Item doesn't exist");
+					Game.print("Item doesn't exist");
 				}
 			break;
 			case "talk":
 				currentRoom.getNPC(commands[1]).talk();
 				break;
 			case "save":
-				System.out.println("Enter file name:");
+				Game.print("Enter file name:");
 				String name = input.nextLine();
 				saveGame(name);
 				break;
 			case "load":
-				System.out.println("Enter file name");
+				Game.print("Enter file name");
 				String name2 = input.nextLine();
 				loadGame(name2);
 				break;
@@ -116,12 +121,10 @@ public class Game {
 			default:
 				System.out.print("I don't know what that means \n");
 			}
-		} while(!gameOver);
-		input.close();
 	}
 
 	public static void print(Object obj){
-		System.out.println(obj.toString());
+		Game.print(obj.toString());
 	}
 
 	public static Room getCurrentRoom(){
@@ -151,7 +154,7 @@ public class Game {
 				reader.close();
 		}
 		catch (FileNotFoundException ex){
-			System.out.println("File not found");
+			Game.print("File not found");
 		}
 	}
 	public static void saveGame(String n){
@@ -165,10 +168,10 @@ public class Game {
 			oos.close();
 		}
 		catch (FileNotFoundException e){
-			System.out.println("File " + n +" not found");
+			Game.print("File " + n +" not found");
 		}
 		catch(IOException ex){
-			System.out.println("Error saving game");
+			Game.print("Error saving game");
 		}
 	}
 
@@ -183,13 +186,13 @@ public class Game {
 			ois.close();
 		}
 		catch (FileNotFoundException e){
-			System.out.println("File " + n + " not found");
+			Game.print("File " + n + " not found");
 		}
 		catch (IOException ex){
-			System.out.println("Error loading game");
+			Game.print("Error loading game");
 		}
 		catch (ClassNotFoundException ex){
-			System.out.println("Error loading game");
+			Game.print("Error loading game");
 		}
 
 	}
