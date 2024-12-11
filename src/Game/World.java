@@ -1,5 +1,4 @@
 package game;
-//TODO: make all room names one word w/o spaces and add items and characters to descriptions
 public class World {
 	public static Room buildWorld(){
 		Room lobby = new Room("lobby");
@@ -27,24 +26,25 @@ public class World {
 		Room stairs2 = new Room("2nd Floor Stairs");
 		Room stairs3 = new Room( "3rd Floor Stairs" );
 		Room freedom = new Room("freedom");
-		Item roomKey = new Item("Key201","To get into your room");
-		Item coin = new Item("Coin", "It's your lucky day!");
-		Item gameCard = new Item("GameCard", "To play all the games you want");
-		Item soda = new Item("Soda","A refreshing beverage");
 		Safe safe = new Safe("safe", "looks cool");
 		Combination combo = new Combination("combo", "To get into the safe");
-		Key freedomKey = new Key("Exit Key", "Key to freedom");
-		Item note = new Item("note","Your ticket to freedom might be dirty. Go get some cleaning supplies!");
+		Note note = new Note("note","Getting out of here isn't as hard as it seems. Look in room 202 for something that'll help");
+		Note note2 = new Note("note", "Maybe there's something useful on the third floor. Check out the rooms up there!");
 		Key maintenanceKey = new Key("key1-2","Key to maintenance");
 		Mop mop = new Mop("mop","To clean. Or knock someone out. Maybe both. Your call");
-		Item note3 = new Item("note3","This room is locked! Maybe you should play a game in the arcade.");
-		Money money = new Money("money","To get casino chips. Or bribe someone. Your call");
+		Note note3 = new Note("note","The mop is good for more than cleaning floors, you know. The housekeeper might also be able to give you some help.");
 		Ball ball = new Ball("ball","To throw around. Maybe to knock something down. Up to you");
 		Box box = new Box("box", "Well, open it.");
 		Puppy puppy  = new Puppy();
 		CasinoWorker casinoWorker = new CasinoWorker("Will", "A pretty mean guy");
 		Housekeeper housekeeper = new Housekeeper("Katie", "A friendly housekeeper");
-		
+		LobbyWorker lobbyWorker = new LobbyWorker("Derek", "The lobby's front desk worker");
+		Owner owner = new Owner("Alex", "The owner of the hotel");
+		ArcadeGamer darrin = new ArcadeGamer("Darrin", "A cool guy from 1977");
+		ArcadeGamer allen = new ArcadeGamer("Allen", "A sports superfan from 2016");
+		ArcadeWorker arcadeWorker = new ArcadeWorker("Sam", "The owner's daughter and arcade stand worker.");
+		Gambler gambler = new Gambler("James", "A gambler from 1955");
+
 		stairs3.addExit(stairs2, 'd');
 		stairs3.addExit(hallway3p1, 'e');
 		
@@ -62,32 +62,32 @@ public class World {
 		laundry.addExit(hallway1p1, 'u');
 		
 		maintenance.addExit(hallway1p2, 'w');
-		maintenance.addItem(freedomKey, "exitKey");
-		// maintenance.addItem(mop, "mop");
 		maintenance.lockRoom();
 		
 		lobby.addExit(arcade, 'e');
 		lobby.addExit(ownerOffice, 's');
-		lobby.addExit(stairs1, 'w');
-		lobby.addItem(roomKey, "Key201");
-		lobby.addItem(mop, "mop");	
-		lobby.addItem(ball,"ball");
+		lobby.addExit(stairs1, 'w');	
+		lobby.addNPC("Derek", lobbyWorker);
+		lobby.addNPC("Alex", owner);
 		
 		ownerOffice.addExit(lobby, 'n');
 		ownerOffice.addItem(safe,"safe");
+		ownerOffice.lockRoom();
 		
 		arcade.addExit(casino, 'e');
 		arcade.addExit(lobby, 'w');
-		arcade.addItem(coin,"Coin");
-		arcade.addItem(gameCard, "GameCard");
-		arcade.addItem(soda, "soda");
 		arcade.addNPC("Puppy", puppy);
+		arcade.addNPC("Darrin", darrin);
+		arcade.addNPC("Allen", allen);
+		arcade.addNPC("Sam", arcadeWorker);
+		arcade.addItem(ball,"ball");
 		
 		
 		casino.addExit(freedom,'e');
 		casino.addExit(arcade, 'w');
 		casino.addItem(combo, "combo");
 		casino.addNPC("Will", casinoWorker);
+		casino.addNPC("James", gambler);
 
 		freedom.lockRoom();
 		
@@ -109,8 +109,9 @@ public class World {
 		hallway2p3.addExit(rm203,'d');
 		
 		rm201.addExit(hallway2p1, 'u');
-		rm201.addItem(money, "money");
+		rm201.addItem(note, "note");
 		rm202.addExit(hallway2p2, 'u');
+		rm202.addItem(note2, "note");
 		rm203.addExit(hallway2p3, 'u');
 		
 		hallway3p1.addExit(hallway3p2,'e');
@@ -127,6 +128,8 @@ public class World {
 		rm301.addItem(maintenanceKey, "maintenanceKey");
 		rm302.addExit(hallway3p2, 'u');
 		rm303.addExit(hallway3p3, 'u');
+		rm303.addItem(mop,"mop");
+		rm303.addItem(note3,"note");
 	
 		return lobby;
 	}

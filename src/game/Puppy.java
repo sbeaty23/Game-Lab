@@ -8,7 +8,8 @@ public Puppy() {
     }
 
     public static void playFetch(){
-        Game.print("The player throws the ball.\nThe puppy happily runs after it, and brings it back to the player.\nThe puppy licks the player's hand");    }
+        Game.print("The player throws the ball.\nThe puppy happily runs after it, and brings it back to the player.\nThe puppy licks the player's hand");    
+    }
 
     @Override
     public void knockOut(){
@@ -16,6 +17,7 @@ public Puppy() {
             Game.print("Really? You wanted to knock out the puppy? Really? What kind of person are you? You obviously can't knock out the puppy, you monster. Go to your room and think about what you've done.");
             Game.print("The player walks to their room to think about their despicable actions.");
             Game.currentRoom = Game.currentRoom.getExit('w').getExit('w').getExit('u').getExit('e').getExit('d');
+            Game.print(Game.currentRoom);
             num++;
         }
         else{
@@ -48,9 +50,7 @@ public Puppy() {
             case 2:
                 say("Yip!");  
                 Game.print("The puppy wags his tail");  
-
         }
-
     }
     @Override
     public void response(int option) {

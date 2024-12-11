@@ -13,16 +13,23 @@ public class Game {
 	static Room currentRoom = World.buildWorld();
 	static String[] commands;
 	static boolean gameOver = false;
+	static GameWindow window = new GameWindow();
+	static Money money = new Money("Money", "For casino chips. Or bribery. Your call");
+	static CasinoChips chips = new CasinoChips("Chips", "For money and gambling");
+
 	public static void main(String[] args) {
 		addDescriptions();
-		runGame();
+		inventory.add(money);//Starts player with 0 dollars
+		inventory.add(chips);//Starts player with 2500 casino chips
+		Game.print("Enjoy the game!");
+		cutscene();	
+		printHelpMenu();
+		Game.print(currentRoom);
 	}
 	
 	public static void runGame() {
 		
 		do {
-			Game.print(currentRoom);
-			System.out.print("Where do you want to go? ");
 			processCommand(input.nextLine());
 		} while(!gameOver);
 		input.close();
@@ -41,11 +48,23 @@ public class Game {
 					if(currentRoom.getExit(commands[0].charAt(0))==null){
 						throw new CantGoThatWayException("You can't go that way!");
 					}
-					if(currentRoom.getExit(commands[0].charAt(0)).getLocked()==true){
+					else if(currentRoom.getExit(commands[0].charAt(0)).getLocked()==true){
 						Game.print("This room is locked. You need the key!");
+					}
+					else if(currentRoom.getExit(commands[0].charAt(0)).getName().equals("freedom")&&!currentRoom.getExit(commands[0].charAt(0)).getNPC("Will").knockedOut){
+						Game.print("The casino worker catches you trying to leave and sends you back to your room. Darn!");
+						currentRoom = currentRoom.getExit('w').getExit('w').getExit('w').getExit('u').getExit('e').getExit('d');
+					}
+					else if(currentRoom.getExit(commands[0].charAt(0)).getName().equals("ownerOffice")&&!currentRoom.getExit(commands[0].charAt(0)).getNPC("Will").knockedOut){
+						Game.print("The owner catches you trying to get into his office and sends you back to your room. Darn!");
+						currentRoom = currentRoom.getExit('w').getExit('w').getExit('w').getExit('u').getExit('e').getExit('d');
 					}
 					else{
 						currentRoom = currentRoom.getExit(commands[0].charAt(0));
+						Game.print(currentRoom);
+						if(currentRoom.getName().equals("freedom")){
+							gameOver = true;
+						}
 					}
 				}
 				catch(CantGoThatWayException e) {
@@ -70,7 +89,7 @@ public class Game {
 							Game.print(i.getDescription());
 							break;
 						}
-				Game.print("Item doesn't exist");
+					Game.print("Item doesn't exist");
 					}
 				}
 				break;
@@ -105,26 +124,121 @@ public class Game {
 				currentRoom.getNPC(commands[1]).talk();
 				break;
 			case "save":
-				Game.print("Enter file name:");
-				String name = input.nextLine();
+				String name = commands[1];
 				saveGame(name);
 				break;
 			case "load":
-				Game.print("Enter file name");
-				String name2 = input.nextLine();
+				String name2 = commands[1];
 				loadGame(name2);
 				break;
 			case "x":
-				System.out.print("Thanks for playing! \n");
+				Game.print("Thanks for playing!");
 				gameOver = true;
 				break;
+			case "h":
+			case "help":
+				printHelpMenu();
+				break;
+			case "bribe":
+				if(find("money").getName().equals("money")&&currentRoom.getNPC(commands[1]).isBribed==false){
+					currentRoom.getNPC(commands[1]).bribe();
+					money.setAmount(money.getAmount()-100);
+				}
+				else{
+					Game.print("You can't bribe "+currentRoom.getNPC(commands[1]).getName()+"!");
+				}
+			case "gamble":
+				if(currentRoom.getName().equals("casino")&&money.getAmount()>50){
+					int num = (1 + (int)(Math.random() * ((5 - 1) + 1)));    
+					if(num>3){
+						money.setAmount(money.getAmount()-50);
+					}
+					else{
+						money.setAmount(money.getAmount()+100);
+					}
+				}
+				else{
+					Game.print("Sorry, you can't gamble right now.");
+				}
+				break;
+			case "exchange":
+				int x = Integer.parseInt(commands[2]);
+				if(x<=0){
+					Game.print("You can't exchange zero or negative amount of currency.");
+				}
+				else if(commands[1].equals("money")&&x>0){
+					money.exchange(x);
+				}
+				else if(commands[1].equals("chips")&&x>0){
+					chips.exchange(x);
+				}
+			case "balance":
+				if(commands[1].equals("chips")){
+					Game.print(chips.getAmount());
+				}
+				else if(commands[1].equals("money")){
+					Game.print(money.getAmount());
+				}
+				else{
+					Game.print("This item doesn't have a balance or doesn't exist");
+				}
 			default:
-				System.out.print("I don't know what that means \n");
+				Game.print("I don't know what that means.");
 			}
+		GameWindow.textF.setText(null);
+	}
+
+	public static void printHelpMenu(){
+		Game.print("Controls:");
+		Game.print("To go in a direction, enter the letter of the direction");
+		Game.print("Directions:");
+		Game.print("\t n - North");
+		Game.print("\t s - South");
+		Game.print("\t e - East");
+		Game.print("\t w - West");
+		Game.print("\t u - Up");
+		Game.print("\t d - Down");
+		Game.print("To take an item, enter 'take' followed by the name of the item");
+		Game.print("To look at an item, enter 'look' followed by the name of the item");
+		Game.print("To use an item, enter 'use' followed by the name of the item");
+		Game.print("To use an item on an NPC, enter 'use' followed by the name of the item, followed by 'on', followed by the name of the character.");
+		Game.print("\t Format: 'use object on character'");
+		Game.print("To open an item, enter 'open' followed by the name of the item");
+		Game.print("To talk to an NPC, enter 'talk' followed by the name of the character");
+		Game.print("To attempt to bribe an NPC, enter 'bribe' followed by the name of the character");
+		Game.print("To gamble, enter 'gamble' when in the casino");
+		Game.print("To exchange currency, enter 'exchange' followed by the type of currency and the amount when in the casino");
+		Game.print("To check your balance of money or chips, enter 'balance' followed by the currency type");
+		Game.print("To save the game, enter 'save' followed by the desired file name");
+		Game.print("To load a saved game, enter 'load' followed by the desired file name");
+		Game.print("To quit the game, enter 'x'");
+		Game.print("To refer back to this menu, enter 'h' or 'help'");
 	}
 
 	public static void print(Object obj){
-		Game.print(obj.toString());
+		window.textArea.append(obj.toString() + "\n");
+	}
+
+	public static void cutscene(){
+		Game.print("Backstory:");
+		Game.print("You walk into the hotel, greeted by the owner.");
+		Game.print("'Hello! Welcome to the Lotus hotel!', he says. 'Let me give you a tour!");
+		Game.print("He shows you around the lobby, and points out the arcade and casino to the east.");
+		Game.print("You walk into the arcade and see a teenager playing a game, wearing a Chicago Cubs jersey.");
+		Game.print("He notices you. 'I can't believe the Cubs finally won the World Series!' he exclaims excitedly.");
+		Game.print("Maybe he's still really happy about it. You shrug it off and move forward.");
+		Game.print("You notice another man, he seems upset.");
+		Game.print("'I can't believe Jimmy Carter got elected president!', he says.");
+		Game.print("'What? That was 47 years ago!' You exclaim. The man, puzzled, points out that it's 1977.");
+		Game.print("The owner, worried, rushes you to the Casino.");
+		Game.print("He shows you around, and keeps you from talking to the man gambling in the corner.");
+		Game.print("You both walk back to the lobby, where he gives you  your room key, a card, and a slip of paper.");
+		Game.print("'The card is unlimited play in the arcade, and the paper notes you have 2500 free chips from the casino. Enjoy your stay!");
+		Game.print("Puzzled, you come to the conclusion that sticking around is a bad idea, and that you should get out of here.");
+		inventory.add(new Item("key201","your room key"));
+		inventory.add(new Item("card","For unlimited play at the arcade."));
+
+
 	}
 
 	public static Room getCurrentRoom(){

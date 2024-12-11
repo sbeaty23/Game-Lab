@@ -7,12 +7,15 @@ public class NPC {
     private String name; // NPC's name
     private String desc; // NPC's description
     static boolean knockedOut; 
+    static boolean isBribed;
     int dialogNum;
     public NPC(String name, String desc) {
+        knockedOut = false;
+        isBribed = true;
         this.name = name;
         this.desc = desc;
         this.dialogNum = 0;
-        knockedOut = false;
+        
     }
     public String getName() {
         return name;
@@ -40,5 +43,7 @@ public class NPC {
     }
     public void knockOut(){
         Game.print("You try to knock out " + name+", but you can't!");
+    }
+    public void bribe(){
     }
 }

@@ -88,9 +88,15 @@ public class Room  implements Serializable{
 	
 	
 	public Item takeItem(String s) {
-		Item x = things.get(s);
-		things.remove(s);
-		return x;
+		if(s.equals("box")||s.equals("note")){
+			Game.print("You can't take that!");
+			return null;
+		}
+		else{
+			Item x = things.get(s);
+			things.remove(s);
+			return x;
+		}
 	}
 
 	public String getDescription(String n){
@@ -102,7 +108,7 @@ public class Room  implements Serializable{
 		return null;
 	}
 	//TODO: add set description method using desc_label
-	
+		
 	public String toString() {
 		return this.getDescription(name);
 	}
