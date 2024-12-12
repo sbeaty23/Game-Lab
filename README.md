@@ -1,4 +1,4 @@
-Walkthrough: 
+Walkthrough: \n
 1.Go to the arcade, take the ball
 2.Go to your room (room 201), knock down the box, get the note with the first clue
 3.Go to room 202, knock down box and take the second note
