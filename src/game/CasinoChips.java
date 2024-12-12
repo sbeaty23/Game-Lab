@@ -5,7 +5,7 @@ public class CasinoChips extends Item {
     private int chips;
     public CasinoChips(String n, String d){
         super(n, d);
-        chips = 0;
+        chips = 500;
     }
 
     public int getAmount(){

@@ -22,7 +22,7 @@ public Puppy() {
         }
         else{
             Game.print("Game Over. You're stuck here forever. Karma's a bitch.");
-            Game.gameOver = true;
+            Game.gameOver = 2;
         }
     }
 

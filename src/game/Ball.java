@@ -8,13 +8,18 @@ public class Ball extends Item {
 
     @Override
     public void use(){
-        if (Game.currentRoom.getName().equals("room 202")){
-            Game.print("You use the ball to knock down the box, inside, you find a note.");
+        try{
+            if(Game.currentRoom.getName().equals("arcade")){
+                Puppy.playFetch();
+            }
+            else if (Game.currentRoom.getItem("box").getName()!=null){
+                Game.currentRoom.getItem("box").open();
+            }
+            else{
+                Game.print("You throw the ball against the wall. It comes back to you and you catch it. Good job.");
+            }
         }
-        else if(Game.currentRoom.getName().equals("arcade")){
-            Puppy.playFetch();
-        }
-        else{
+        catch(NullPointerException e){
             Game.print("You throw the ball against the wall. It comes back to you and you catch it. Good job.");
         }
     }

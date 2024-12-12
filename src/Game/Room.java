@@ -14,10 +14,11 @@ public class Room  implements Serializable{
 	private HashMap<String, NPC> characters = new HashMap<String, NPC>();
 	private boolean lock;
 	private String name;
-	private String desc_label;
+	private String descLabel;
 	
 	public Room(String n) {
 		name = n;
+		descLabel = n;
 		Game.rooms.put(n, this);
 	}
 	
@@ -100,17 +101,15 @@ public class Room  implements Serializable{
 	}
 
 	public String getDescription(String n){
-		for(String s: Game.descriptions.keySet()){
-			if(s.equals(n)){
-				return Game.descriptions.get(s);
-			}
-		}
-		return null;
+		return Game.descriptions.get(n);
 	}
-	//TODO: add set description method using desc_label
-		
+
+	public void setDescription(String n){
+		descLabel = n;
+	}
+
 	public String toString() {
-		return this.getDescription(name);
+		return this.getDescription(descLabel);
 	}
 		public void lockRoom(){
 		lock = true;

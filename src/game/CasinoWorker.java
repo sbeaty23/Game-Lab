@@ -35,12 +35,14 @@ public class CasinoWorker extends NPC{
                 say("I don't know why you keep coming over here. Just stay away from the door!");  
                 String[] options3 = {
                     "I'll try to stay away from the door.",
-                    "Why, what's up with the door?"
+                    "I need more chips."
                 };
                 getResponse(options3);
                 break;
+            default:
+                Game.print("Will doesn't want to talk. He just gives you more chips.");
+                Game.chips.setAmount(Game.chips.getAmount()+50);
         }
-
     }
 
     @Override
@@ -51,7 +53,8 @@ public class CasinoWorker extends NPC{
                 case 1:
                     say("Here you go.");
                     Game.print("The player recieves more chips");
-                    Game.inventory.add(new Item("chips","2500 chips"));
+                    Game.chips.setAmount(Game.chips.getAmount()+50);
+                    dialogNum-=1;
                     break;
                 case 2:
                     say("Huh? What are you talking about? Nobody asks that. Get out of here!");
@@ -64,7 +67,8 @@ public class CasinoWorker extends NPC{
                     case 1:
                         say("Here you go.");
                         Game.print("The player recieves more chips");
-                        Game.inventory.add(new Item("chips","2500 chips"));
+                        Game.chips.setAmount(Game.chips.getAmount()+50);
+                        dialogNum-=1;
                         break;
                     case 2:
                         say("Then stop wasting my time!");
@@ -77,8 +81,10 @@ public class CasinoWorker extends NPC{
                     case 1:
                         say("Good, now I need to get back to work.");
                     case 2:
-                        say("Nothing! Just stay away from it!");
-                        Game.print("The player walks away.");
+                        say("Here you go.");
+                        Game.print("The player recieves more chips");
+                        Game.chips.setAmount(Game.chips.getAmount()+50);
+                        dialogNum-=1;
                 }    
         }
     }

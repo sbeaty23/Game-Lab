@@ -10,6 +10,7 @@ public class Owner  extends NPC{
     public void knockOut(){
         Game.print("The owner is knocked out! Now is your chance to go into his office!");
         knockedOut = true;
+        Game.currentRoom.getExit('s').unlockRoom();
     }
 
     @Override

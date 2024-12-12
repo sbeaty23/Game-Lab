@@ -1,7 +1,6 @@
 package game;
 
 public class Housekeeper extends NPC {
-    private int x;
     
     public Housekeeper(String n, String d){
         super(n, d);
@@ -55,6 +54,7 @@ public class Housekeeper extends NPC {
         default:
             if (Game.find("mop")!=null){
                 dialogNum = 70;
+                Game.print("The housekeeper is busy, try again later.");
             }
             else{
                 Game.print("The housekeeper is busy, you can't talk to her right now");
@@ -73,9 +73,8 @@ public class Housekeeper extends NPC {
                     Game.print("She is delighted by your manners. You might be able to get some useful information out of her.");
                     break;
                 case 2:
-                    say("Yes.");
-                    Game.print("Don't forget that she'll remember how you talk to her. You're trying to get out of here, NOT make enemies!");
-                    break;
+                say("Yes! I'll bring them right up to your room!");
+                break;
                 }
             break;
             case 2:
@@ -83,14 +82,12 @@ public class Housekeeper extends NPC {
             case 10:
                 switch(option){
                     case 1:
-                        x = 0;
                         say("Of course!");
                         Game.print("The housekeeper gets you a new pillowcase.");
                         break;
                     case 2:
-                        x = 0;
-                        say("Yes.");
-                        Game.print("The housekeeper gets you a new pillowcase, but seems very angry.");
+                        say("Of course!");
+                        Game.print("The housekeeper gets you a new pillow.");
                         break;
                 }
                 break;

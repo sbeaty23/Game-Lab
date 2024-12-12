@@ -1,74 +1,95 @@
 lobby
-You are in the Lobby
+You are in the Lobby. To the east, you notice the arcade. To the west, you notice the door to the staircase. South, you notice the owner's office. Right outside of his office is the owner, Alex. At the desk is the lobby worker, Derek.
+#
+lobby_A
+You are in the Lobby. To the east, you notice the arcade. To the west, you notice the door to the staircase. South, you notice the owner's office. Right outside of his office is the owner, Alex, knocked out cold. At the desk is the lobby worker, Derek.
 #
 office
-You are in the owner's office
+You are in the owner's office. North is the door to the lobby. You notice a safe on the owner's desk. 
 #
 arcade
-You are in the arcade
+You are in the arcade. To the east, you notice the lobby. To the west, you notice the casino. Playing games are Darrin and Allen. At the rusty stand, you notice Sam, the owner's daughter, working. In front of a game machine, you notice a puppy running around. On the floor, you see a ball.
+#
+arcade_A
+You are in the arcade. To the east, you notice the lobby. To the west, you notice the casino. Playing games are Darrin and Allen. At the rusty stand, you notice Sam, the owner's daughter, working. In front of a game machine, you notice a puppy running around.
 #
 casino
-You are in the casino
+You are in the casino, to the east, you notice a large door. To the west, you notice the arcade. James is gambling in the corner. At the casino desk, you see Will. 
+#
+casino_A
+You are in the casino. To the east, you notice a large door. To the west, you notice the arcade. James is gambling in the corner. At the casino desk, you see Will, knocked out cold.
 #
 Hall 1 Part 1
 You are in the basement hallway in front of the laundry room   
 #
-Hall 1 Part 2  
+Hall 1 Part 2
 You are in the basement hallway in front of the maintenance room
 #
 Laundry Room
 You are in the laundry room
 #
-Maintenance
+maintenance
 You are in the maintenance room
 #
 Hall 2 Part 1
-You are in the second floor hallway in front of room 201
+You are in the second floor hallway in front of room 201. Down is room 201.
 #   
 Hall 2 Part 2
-You are in the second floor hallway in front of room 202
+You are in the second floor hallway in front of room 202. Down is room 202.
 #  
-Hall 2 Part 3 
-You are in the second floor hallway in front of room 203
+Hall 2 Part 3
+You are in the second floor hallway in front of room 203. Down is room 203.
 #   
 Room 201
-You are in your room
+You are in your room. Up, is the door to the hallway. You notice a box high up on a shelf. Well out of reach.
+#
+Room 201_A
+You are in your room. Up, is the door to the hallway. You notice the open box laying on the floor.
 #
 Room 202
-You are in room 202
+You are in room 202. Up, is the door to the hallway. You notice a box high up on a shelf. Well out of reach.
+#
+Room 202_A
+You are in room 202. Up, is the door to the hallway. You notice the open box laying on the floor.
 #
 Room 203
 You are in room 203
 #
 Hall 3 Part 1
-You are in the third floor hallway in front of room 301
+You are in the third floor hallway in front of room 301. You notice Katie the housekeeper cleaning the floor. Down is room 301.
 #    
 Hall 3 Part 2
-You are in the third floor hallway in front of room 302
+You are in the third floor hallway in front of room 302. Down is room 302.
 #  
-Hall 3 Part 3 
-You are in the third floor hallway in front of room 303
+Hall 3 Part 3
+You are in the third floor hallway in front of room 303. Down is room 303.
 #
 Room 301
-You are in room 301
+You are in room 301. Up is the hallway.
 #      
-Room 302 
-You are in room 302
+Room 302
+You are in room 302. Up is the hallway. You notice a mop in the corner.
 #    
+Room 302_A
+You are in room 302. Up is the hallway.
+#
 Room 303
-You are in room 303
+You are in room 303. Up is the hallway. You notice a box high on a shelf. Well out of reach.
 #   
+Room 303_A
+You are in room 303. Up is the hallway. You notice the open box laying on the ground.
+#
 Basement stairs
-You are in the basement stairway
+You are in the basement stairway. Up is the first floor stairway. To the east is a hallway.
 #
 Lobby Stairs
-You are in the first floor stairway
+You are in the first floor stairway. Up is the second floor stairway. Down is the basement stairway. To the east is the lobby.
 #
 2nd Floor Stairs
-You are in the second floor stairway
+You are in the second floor stairway. Up is the third floor stairway. Down is the first floor stairway. To the east is the hallway.
 #
 3rd Floor Stairs
-You are in the thrid floor stairway
+You are in the third floor stairway. Down is the second floor stairway. To the east is the hallway.
 #
-Freedom
+freedom
 Congratulations! You've escaped the hotel!      

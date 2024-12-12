@@ -7,13 +7,13 @@ public class Key extends Item {
 
     @Override
     public void use(){
-        for(Item i: Game.inventory){
-            if(i.getDescription().split(" ")[2].equals(Game.currentRoom.getExit('e').getName())){
+        if(Game.find("freedomkey")!=null){
+            if(Game.find("freedomkey").getDescription().split(" ")[2].equals(Game.currentRoom.getExit('e').getName())){
                 Game.currentRoom.getExit('e').unlockRoom();
                 Game.print("You unlock the door!");
-                break;
+                return;
             }
         }
-        Game.print("You don't have the key to this room!");
+        Game.print("You don't have the key!");
     }
 }
