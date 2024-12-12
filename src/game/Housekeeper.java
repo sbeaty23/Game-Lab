@@ -13,8 +13,13 @@ public class Housekeeper extends NPC {
 
     @Override
     public void bribe(){
-        Game.print("I guess converation isn't your thing. Luckily, the housekeeper likes money.");
-        dialogNum = 70;
+        if(Game.find("mop")!=null){
+            Game.print("I guess converation isn't your thing. Luckily the housekeeper likes money.");
+            dialogNum = 70;
+        }
+        else{
+            Game.print("Get the mop before bribing the housekeeper!");
+        }
     }
     @Override
     public void talk() {

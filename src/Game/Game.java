@@ -93,7 +93,7 @@ public class Game {
 							Game.print("Don't take the safe! Just open it!");
 						}
 						else{
-							Game.print("You take the"+commands[1]);
+							Game.print("You pick up the "+commands[1]+"!");
 							inventory.add(currentRoom.takeItem(commands[1]));
 							Game.currentRoom.setDescription(Game.currentRoom.getName()+"_A");
 							Game.print(currentRoom);
